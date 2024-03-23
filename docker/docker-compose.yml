@@ -1,0 +1,43 @@
+version: '3'
+services:
+  mysql:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    restart: always
+    container_name: null-more-mysql
+    image: null-more-mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - null-more-network
+
+  redis:
+    image: redis
+    restart: always
+    container_name: null-more-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - null-more-network
+
+  null-more:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: null-more
+    ports:
+      - "7777:7777"
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - /root/docker/logs:/app/logs
+    networks:
+      - null-more-network
+
+networks:
+  null-more-network:
+    external: true

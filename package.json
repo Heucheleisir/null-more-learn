@@ -1,0 +1,31 @@
+{
+    "name": "project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "rimraf ./dist && cpx ./package.json ./dist && cpx ./public/* ./dist/public && tsc && tsc-alias",
+        "start:pre": "pm2 start main.js --no-daemon",
+        "start": "nodemon -r tsconfig-paths/register src/main.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/express": "^4.17.17",
+        "express": "^4.18.2",
+        "ts-node": "^10.9.1",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "cpx": "^1.5.0",
+        "jsonwebtoken": "^9.0.2",
+        "mysql2": "^3.6.1",
+        "nodemon": "^3.0.1",
+        "pm2": "^5.3.1",
+        "redis": "^4.6.10",
+        "rimraf": "^5.0.5",
+        "tsc-alias": "^1.8.8"
+    }
+}
