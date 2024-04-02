@@ -17,12 +17,12 @@ router.get('/getById/:id', async function (req: Request, res: Response, next: Ne
     res.json(new DR(200, 'success', testDemo))
 })
 
-router.post('/', async function (req: Request, res: Response, next: NextFunction) {
+router.put('/', async function (req: Request, res: Response, next: NextFunction) {
     const result: boolean = await testDemoService.updateTestDemoById(new TestDemo(req.body))
     res.json(new DR(200, 'success', result))
 })
 
-router.put('/', async function (req: Request, res: Response, next: NextFunction) {
+router.post('/', async function (req: Request, res: Response, next: NextFunction) {
     const testDemo = new TestDemo(req.body)
     if (testDemo.insertInspect()) {
         const result: boolean = await testDemoService.saveTestDemo(testDemo)
