@@ -4,8 +4,8 @@ class DataResponse extends R {
 
     private data: String;
 
-    constructor(code: Number, massage?: String, data?: any) {
-        super(code, massage)
+    constructor(code: Number, message?: String, data?: any) {
+        super(code, message)
         this.data = data
     }
     

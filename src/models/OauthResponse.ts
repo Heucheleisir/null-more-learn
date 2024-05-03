@@ -4,8 +4,8 @@ class OauthResponse extends R {
 
     private token: String;
 
-    constructor(code: Number, massage?: String, token?: String) {
-        super(code, massage)
+    constructor(code: Number, message?: String, token?: String) {
+        super(code, message)
         this.token = token
     }
     

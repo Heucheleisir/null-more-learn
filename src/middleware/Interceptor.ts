@@ -30,7 +30,7 @@ const interceptor = async function (request: Request, response: Response, next) 
                 next();
             } else {
                 response.status(401)
-                return response.json(new OR(-1, verify.massage));
+                return response.json(new OR(-1, verify.message));
             }
         } else {
             response.status(401)

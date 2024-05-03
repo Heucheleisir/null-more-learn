@@ -1,11 +1,11 @@
 class Response {
 
     private code: Number;
-    private massage: String;
+    private message: String;
 
-    constructor(code: Number, massage?: String ) {
+    constructor(code: Number, message?: String ) {
         this.code = code
-        this.massage = massage
+        this.message = message
     }
     
 }

@@ -27,13 +27,13 @@ export async function oauthExist(token) {
 export async function verifyToken(token: string) {
     let verify = {
         verified: false,
-        massage: '',
+        message: '',
         payload: null,
     }
     await jsonwebtoken.verify(token, jwtKey, (err, payload) => {
         if (err) {
             verify.verified = false
-            verify.massage = err
+            verify.message = err
         }
         else {
             verify.verified = true
